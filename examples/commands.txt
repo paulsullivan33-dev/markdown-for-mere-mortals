@@ -1,0 +1,21 @@
+Commands used in this guide (pandoc 3.1.3, Python-Markdown 3.11.1)
+
+Render a file as HTML, choosing the flavour explicitly:
+  pandoc -f markdown    -t html fixtures/newsletter.md
+  pandoc -f commonmark  -t html fixtures/newsletter.md
+  pandoc -f gfm         -t html fixtures/newsletter.md
+  pandoc -f commonmark_x -t html fixtures/flavors.md
+  pandoc -f markdown_strict -t html fixtures/hard-breaks.md
+
+The second renderer:
+  markdown_py fixtures/newsletter.md
+
+A full page with heading anchors and a table of contents:
+  pandoc -f markdown -t html --standalone --toc \
+      --metadata title=Headings fixtures/headings.md
+
+Show invisible characters (trailing spaces) in a fixture:
+  cat -A fixtures/hard-breaks.md
+
+Compare two renders of the same file:
+  bash render-compare.sh        (in the lab; see criteria.md)
